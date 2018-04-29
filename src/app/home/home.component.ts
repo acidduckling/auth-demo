@@ -13,4 +13,8 @@ export class HomeComponent {
   logout() {
     this.authService.logout();
   }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
 }
