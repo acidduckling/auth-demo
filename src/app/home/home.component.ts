@@ -8,13 +8,5 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  constructor(private authService: AuthService) { }
-
-  logout() {
-    this.authService.logout();
-  }
-
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  }
+  constructor(public authService: AuthService) { }
 }
