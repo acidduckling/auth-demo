@@ -22,6 +22,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AuthGuard } from './services/auth.guard';
+import { AdminAuthGuard } from './services/admin-auth.guard';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { AuthGuard } from './services/auth.guard';
     HttpModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+      { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
       { path: 'login', component: LoginComponent },
       { path: 'no-access', component: NoAccessComponent }
     ])
@@ -49,6 +50,7 @@ import { AuthGuard } from './services/auth.guard';
 
     AuthService,
     AuthGuard,
+    AdminAuthGuard,
 
     // For creating a mock back-end. You don't need these in a real app.
     fakeBackendProvider,
